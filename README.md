@@ -46,9 +46,12 @@ driver.findElement(signupButton).click();
 public class SignupTest extends BaseTest {
 
 @Test(dataProvider = "signupData")
-public void testValidSignup(String firstname, String lastname, String dateofbirth, String password, String
-
-
+public void testValidSignup(String firstname, String lastname, String dateofbirth, String password, String confirmpassword) {
+SignupPage signupPage = new SignupPage(driver);
+signupPage.enterFirstname(firstname);
+signupPage.enterLastname(lastname);
+signupPage.enterDateofbirth(dateofbirth);
+signupPage.enterConfirmpassword(confirmpassword);
 
 
 
