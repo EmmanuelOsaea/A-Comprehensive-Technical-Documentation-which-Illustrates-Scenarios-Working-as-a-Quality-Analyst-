@@ -44,4 +44,15 @@ driver.findElement(signupButton).click();
 }
 
 public class SignupTest extends BaseTest {
+
+@Test(dataProvider = "signupData")
+public void testValidSignup(String firstname, String lastname, String dateofbirth, String password, String
+
+
+
+
+
+
+
+
 ```
