@@ -93,10 +93,15 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
-public
+public class MaintenanceStorageApiTest {
 
+@BeforeClass {
+public void setup() {
+// Base URL for my system's api
+RestAssured.baseURL = " ";
+}
 
-
-
+@Test
+public void testTriggerMaintenanceCleanup() {
 
 
