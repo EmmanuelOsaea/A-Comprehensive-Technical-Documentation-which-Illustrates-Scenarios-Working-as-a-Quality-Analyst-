@@ -103,5 +103,17 @@ RestAssured.baseURL = " ";
 
 @Test
 public void testTriggerMaintenanceCleanup() {
+// Step 1: Trigger maintenance cleanup via POST request
+Response response = RestAssured.given()
+.contentType(ContentType.JSON)
+.body("{\"operation\":\"cleanup\"}")
+.when()
+.post("/api/maintenance/trigger")
+.then()
+.statusCode(200) // Expect success status
+.extract()
+.response();
+
+
 
 
