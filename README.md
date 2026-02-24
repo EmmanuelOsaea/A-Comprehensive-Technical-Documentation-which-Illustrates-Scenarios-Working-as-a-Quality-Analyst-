@@ -117,13 +117,21 @@ Response response = RestAssured.given()
 // Step 4: Verifies storage capacity and used space
 int totalCapacity = response.jsonPath().getInt
 
+String sampleDataId = " ";
 
+Response response = RestAssured.given()
+.when()
+.get("/api/storage/data" + sampleDataId)
+.then()
+.statusCode(200)
+.extract();
+.response();
 
 String dataId = response.jsonPath().getString("id");
 String checksum = response.jsonPath().getString("checksum");
 String expectedChecksum = " "; // Expected checksum for verification
 
 Assert.assertEquals(dataId, sampleDataId, "Data id should be similar");
-Assert.assertEquals(checksum, expectedChecksum, "Data checksum should be similar to the expected value")
+Assert.assertEquals(checksum, expectedChecksum, "Data checksum should be similar to the expected value");
 }
 }
