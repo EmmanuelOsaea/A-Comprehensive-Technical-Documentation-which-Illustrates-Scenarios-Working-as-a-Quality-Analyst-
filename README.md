@@ -117,7 +117,11 @@ Response response = RestAssured.given()
 // Step 4: Verifies storage capacity and used space
 int totalCapacity = response.jsonPath().getInt("totalCapacityGB");
 int usedSpace = response.jsonPath().getInt("usedSpaceGB");
-boolean isHealthy = response.jsonPath().getInt("is")
+boolean isHealthy = response.jsonPath().getInt("isHealthy")
+
+Assert.assertTrue(
+Assert.assertTrue(
+Assert.assertTrue(
 
 }
 @Test(dependsOnMethods = "testCheckStorageStatus")
