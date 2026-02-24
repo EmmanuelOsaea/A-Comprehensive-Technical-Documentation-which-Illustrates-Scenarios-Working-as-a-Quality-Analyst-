@@ -145,7 +145,7 @@ Assert.assertTrue(isHealthy, "Storage system should be healthy");
 @Test(dependsOnMethods = "testCheckStorageStatus")
 public void testValidateStoredDataIntegrity() {
 // Step 5: Verify data integrity by fetching a sample stored item
-String sampleDataId = " ";
+String sampleDataId = "data678";
 
 Response response = RestAssured.given()
 .when()
@@ -157,7 +157,7 @@ Response response = RestAssured.given()
 
 String dataId = response.jsonPath().getString("id");
 String checksum = response.jsonPath().getString("checksum");
-String expectedChecksum = " "; // Expected checksum for verification
+String expectedChecksum = "dbf678rst"; // Expected checksum for verification
 
 Assert.assertEquals(dataId, sampleDataId, "Data id should be similar");
 Assert.assertEquals(checksum, expectedChecksum, "Data checksum should be similar to the expected value");
