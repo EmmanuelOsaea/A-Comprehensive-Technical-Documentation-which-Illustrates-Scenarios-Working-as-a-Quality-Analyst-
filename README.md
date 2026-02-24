@@ -115,8 +115,14 @@ Response response = RestAssured.given()
 .response();
 
 // Step 4: Verifies storage capacity and used space
-int totalCapacity = response.jsonPath().getInt
+int totalCapacity = response.jsonPath().getInt("totalCapacityGB");
+int usedSpace = response.jsonPath().getInt("usedSpaceGB");
+boolean isHealthy = response.jsonPath().getInt("is")
 
+}
+@Test(dependsOnMethods = "testCheckStorageStatus")
+public void testValidateStoredDataIntegrity() {
+// Step 5: Verify data integrity by fetching a sample stored item
 String sampleDataId = " ";
 
 Response response = RestAssured.given()
@@ -135,3 +141,9 @@ Assert.assertEquals(dataId, sampleDataId, "Data id should be similar");
 Assert.assertEquals(checksum, expectedChecksum, "Data checksum should be similar to the expected value");
 }
 }
+
+
+
+
+
+
