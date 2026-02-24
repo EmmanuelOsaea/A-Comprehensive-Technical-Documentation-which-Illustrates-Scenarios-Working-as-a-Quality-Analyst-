@@ -120,7 +120,7 @@ int usedSpace = response.jsonPath().getInt("usedSpaceGB");
 boolean isHealthy = response.jsonPath().getInt("isHealthy")
 
 Assert.assertTrue(totalCapacity > 0, "Total capacity should be greater than zero")
-Assert.assertTrue(
+Assert.assertTrue(usedSpace >= 0 && usedSpace <= totalCapacity, "used
 Assert.assertTrue(
 
 }
