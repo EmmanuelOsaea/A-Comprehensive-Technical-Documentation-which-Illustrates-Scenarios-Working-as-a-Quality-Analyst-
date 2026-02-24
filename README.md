@@ -114,6 +114,8 @@ Response response = RestAssured.given()
 .extract()
 .response();
 
+// Step 4: Verifies storage capactity and used space
+int totalCapacity = 
 
 
 
