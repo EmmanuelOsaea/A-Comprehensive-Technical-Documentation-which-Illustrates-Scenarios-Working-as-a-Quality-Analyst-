@@ -119,6 +119,26 @@ String message = response.jsonPath().getString("message");
 Assert.assertEquals(message, "Cleanup started successfully", "Maintenance trigger message mismatch");
 }
 
+@Test(dependsOnMethods = "testTriggerMaintenanceCleanUp")
+public void testCheckStorageStatus() {
+// Step 3: Check storage usage and status
+Response response = RestAssured.given()
+ .when()
+ .get("/api/storage/status")
+ .then()
+ .statusCode(200)
+ .extract()
+ .response();
+ 
+
+
+
+
+
+
+
+
+
 @Test(dependsOnMethods = "testTriggerMaintenanceCleanup")
 public void testCheckupStorageStatus() {
 // Step 4: Verifies storage capacity and used space
