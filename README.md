@@ -119,8 +119,11 @@ int totalCapacity = response.jsonPath().getInt
 
 
 
+String dataId = response.jsonPath().getString("id");
+String checksum = response.jsonPath().getString("checksum");
+String expectedChecksum = " "; // Expected checksum for verification
 
-Assert.assertEquals(data
-Assert.assertEquals(
+Assert.assertEquals(dataId, sampleDataId, "Data id should be similar");
+Assert.assertEquals(checksum, expectedChecksum, "Data checksum should be similar to the expected value")
 }
 }
