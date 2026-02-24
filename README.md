@@ -114,16 +114,23 @@ Response response = RestAssured.given()
 .extract()
 .response();
 
+// Step 2: Verify response message
+String message = response.jsonPath().getString("message");
+Assert.assertEquals(message, "Cleanup started successfully", "Maintenance trigger message mismatch");
+}
+
+@Test(dependsOnMethods = "testTriggerMaintenanceCleanup")
+public void testCheckupStorageStatus() {
 // Step 4: Verifies storage capacity and used space
 int totalCapacity = response.jsonPath().getInt("totalCapacityGB");
 int usedSpace = response.jsonPath().getInt("usedSpaceGB");
 boolean isHealthy = response.jsonPath().getInt("isHealthy")
 
 Assert.assertTrue(totalCapacity > 0, "Total capacity should be greater than zero")
-Assert.assertTrue(usedSpace >= 0 && usedSpace <= totalCapacity, "used
-Assert.assertTrue(
-
+Assert.assertTrue(usedSpace >= 0 && usedSpace <= totalCapacity, "Used space should be used within capacity");
+Assert.assertTrue(isHealthy, "Storage system should be healthy");
 }
+
 @Test(dependsOnMethods = "testCheckStorageStatus")
 public void testValidateStoredDataIntegrity() {
 // Step 5: Verify data integrity by fetching a sample stored item
