@@ -78,7 +78,7 @@ public Object[] [] getSignUpData() {
 return new Object [] [] {
 
 { "Zachtu", "Zuch", "01/02/1885", "zachtu.zuch@example.com", "Password224"}
-{ "Glaur", "Gluch", "04/06/1882", "glaur.gluch@example.com", "Password666"}
+{ "Glaur", "Gluch", "04/06/1882", "glaur.gluch@example.com", "Password222"}
 };
 }
 }
