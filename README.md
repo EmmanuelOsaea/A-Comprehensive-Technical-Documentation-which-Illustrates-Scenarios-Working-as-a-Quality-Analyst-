@@ -85,7 +85,7 @@ return new Object [] [] {
 ```
 
 # API Testing to Validate Maintenance and System Storage
-
+```
 import io.restassured.RestAssured
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -130,15 +130,6 @@ Response response = RestAssured.given()
  .extract()
  .response();
  
-
-
-
-
-
-
-
-
-
 @Test(dependsOnMethods = "testTriggerMaintenanceCleanup")
 public void testCheckupStorageStatus() {
 // Step 4: Verifies storage capacity and used space
@@ -172,7 +163,7 @@ Assert.assertEquals(dataId, sampleDataId, "Data id should be similar");
 Assert.assertEquals(checksum, expectedChecksum, "Data checksum should be similar to the expected value");
 }
 }
-
+```
 
 
 
