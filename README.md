@@ -114,8 +114,13 @@ Response response = RestAssured.given()
 .extract()
 .response();
 
-// Step 4: Verifies storage capactity and used space
-int totalCapacity = 
+// Step 4: Verifies storage capacity and used space
+int totalCapacity = response.jsonPath().getInt
 
 
 
+
+Assert.assertEquals(data
+Assert.assertEquals(
+}
+}
