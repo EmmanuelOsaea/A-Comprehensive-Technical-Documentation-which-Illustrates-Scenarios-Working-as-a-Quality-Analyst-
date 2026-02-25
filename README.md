@@ -295,7 +295,51 @@ import org.springframework.context.factory.annotation.Configuration;
 @Configuration
 public class ApiConfig {
 
-@Value
+@Value("${api.base.url}")
+private String baseUrl;
+
+public String getBaseUrl() {
+return baseUrl;
+}
+}
+```
+
+# b) Database Configuration
+# ( DatabaseConfig.java )
+ ```
+ package com.example.config;
+
+ import org.springframework.context.annotation.Bean;
+ import org.springframework.context.annotation.Configuration;
+ import org.springframework.jdbc.core.JdbcTemplate;
+ import javax.sql.DataSource;
+ import org.springframework.boot.jdbc.DataSourceBuilder;
+ 
+ @Configuration
+ public class DatabaseConfig {
+
+  @Bean
+  public Datasource datasource() {
+  return DatasourceBuilder.create()
+   .url("jdbc:mysql://localhost:3306/yourdb")
+   .username("youruser")
+   .password("yourpassword")
+   .driverClassName("com.mysql.cj.jdbc.Driver")
+   .build();
+ }
+
+@Bean
+public JdbcTemplate JdbcTemplate(Datasource dataSource) {
+return new JdbcTemplate(dataSource);
+}
+}
+
+
+
+
+
+
+
 
 
 
