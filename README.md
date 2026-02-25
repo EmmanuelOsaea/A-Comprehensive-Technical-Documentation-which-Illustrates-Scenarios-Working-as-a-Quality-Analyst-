@@ -281,3 +281,21 @@ Assertions.assertTrue(response.getBody().contains("status"));
 ```
 api.base.url=https://github.com/EmmanuelOsaea/Quiz-app-Front-end-Web-design-
 ```
+
+# 2. Key Components
+
+# a) Api Configuration
+# (ApiConfig.java)
+```
+package com.example.config;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.factory.annotation.Configuration;
+
+@Configuration
+public class ApiConfig {
+
+@Value
+
+
+
