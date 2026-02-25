@@ -187,8 +187,97 @@ return baseUrl;
 }
 }
 
+b) HTTP Client Wrapper
+(ApiClient.java)
 
+package com.example.client;
 
+import org.springframework.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
 
+@Component
+public class ApiClient {
 
+private final RestTemplate restTemplate = new RestTemplate();
 
+public ResponseEntity<String> get(Stringurl, Object request) {
+return restTemplate.getForentity(url, String.class);
+}
+
+public ResponseEntity<String> post(Stringurl, Object request) {
+return restTemplate.getForentity(url, request, String.class);
+}
+
+}
+```
+# c) Integration Service
+# (IntegrationService.java)
+
+```
+package.com.example.service;
+
+import com.example.client.ApiClient;
+import com.example.client.ApiConfig;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+@Service
+
+public class IntegrationService {
+
+private final ApiClient apiClient;
+private final ApiConfig apiConfig;
+
+public IntegrationService(ApiClient apiClient, ApiConfig apiConfig) {
+this.apiClient = apiClient;
+this.apiConfig = ApiConfig;
+}
+
+public ResponseEntity<String> sendData(Object data) {
+String url  = apiConfig.getBaseUrl() + "/data";
+return.apiClient.post(url, data);
+}
+
+}
+```
+
+# d) Api Integration Tests
+# (ApiIntegrationsTests.java)
+```
+package com.example.tests;
+
+import com.example.service.IntegrationService;
+import org.junit.jupiter.api.Assertion;
+import org.junit.jupiter.api.test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.context.ResponseEntity
+
+@SpringBootTest
+public class ApiIntegrationTest {
+
+@AutoWired
+private IntegrationService integrationService;
+
+@Test
+public void testSystemStatusEndpoint() {
+     ResponseEntity<String> response = integrationService.getSystemStatus();
+     Assertions.assertEquals(200, response.getStatusCodeValue());
+     Assertions.assertTrue(response.getBody().contains("status"));
+}
+
+@Test
+public void testSendDataEndpoint() {
+
+ResponseEntity<String> response = integrationService.sendData(sampleData);
+Assertions.assertEquals(200, response.getStatusCodeValue());
+Assertions.assertTrue(response.getBody().contains("status"));
+}
+}
+```
+# 3. Configuration File
+# ( application.properties )
+```
+api.base.url=https://github.com/EmmanuelOsaea/Quiz-app-Front-end-Web-design-
+```
