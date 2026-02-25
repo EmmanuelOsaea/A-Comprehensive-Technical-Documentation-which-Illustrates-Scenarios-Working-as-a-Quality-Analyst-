@@ -335,10 +335,17 @@ return new JdbcTemplate(dataSource);
 }
 ```
 
-# API Client (ApiClient.java)
+# c) API Client (ApiClient.java)
+```
+package com.example.client
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
+import org.springframework.web.client.RestTemplate;
 
+@Component
+public Class ApiClient {
 
-
+private final RestTemplate
 
 
 
