@@ -98,7 +98,7 @@ public class MaintenanceStorageApiTest {
 @BeforeClass {
 public void setup() {
 // Base URL for my system's api
-RestAssured.baseURL = " ";
+RestAssured.baseURL = "https://github.com/EmmanuelOsaea/Quiz-app-Front-end-Web-design-";
 }
 
 @Test
