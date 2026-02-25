@@ -84,7 +84,7 @@ return new Object [] [] {
 }
 ```
 
-# API Testing to Validate Maintenance and System Storage
+# API Testing to Validate Maintenance and System Storage(Bonus)
 ```
 import io.restassured.RestAssured
 import io.restassured.http.ContentType;
@@ -166,9 +166,26 @@ Assert.assertEquals(checksum, expectedChecksum, "Data checksum should be similar
 ```
 
 
+# Api Testing to Validate Integrations & System Communication
 
+# a) Configuration 
+ # (ApiConfig.java)
+```
+package com.example.config;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Value
 
+@Configuration
+public class ApiConfig {
+
+@Value("${api.base.url}")
+private String baseUrl;
+
+public String getBaseUrl() {
+return baseUrl;
+}
+}
 
 
 
