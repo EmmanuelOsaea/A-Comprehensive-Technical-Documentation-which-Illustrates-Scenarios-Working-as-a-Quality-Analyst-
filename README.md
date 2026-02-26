@@ -446,8 +446,49 @@ public String getColumnValueById(String tableName, String columnName, int id) {
 # ( ApiDatabaseTests.java )
 ```
 package com.example.tests;
+import com.example.service.DatabaseService;
+import com.example.service.IntegrationService;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.ResponseEntity;
 
+@SpringBootTest
+public class ApiDatabaseTests {
 
+@AutoWired 
+private IntegrationService  integrationService();
 
+@AutoWired 
+private DatabaseService databaseService;
 
- 
+@Test
+public void testApiSystemStatus() {
+ ResponseEntity<String> response = integrationService.getSystemStatus();
+ Assertions.assertEquals(200, response.getStatusCodeValue());
+ Assertions.assertTrue(response.getBody().contains("status"));
+}
+
+@Test
+public void testDataConsistencyBetweenApiAndDb() {
+    ResponseEntity<String> apiResponse = integration.getSystemStatus();
+    String dbValue = databaseService.getColumnValueById("system_status", "status", 1);
+
+    Assertions.assertEquals(dbValue, apiResponse.getBody(), "API response and DB value should be similar");
+    }
+}
+```
+
+# 3. Configuration File
+# (application.properties)
+
+```
+api.base.url=https://github.com/EmmanuelOsaea/Quiz-app-Front-end-Web-design-
+
+# Database connection properties
+spring.datasource.url=jdbc:mysql://localhost:3306/yourdb
+spring.datasource.url.username=yourUser
+spring.datasource.password=yourPassword
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+```
