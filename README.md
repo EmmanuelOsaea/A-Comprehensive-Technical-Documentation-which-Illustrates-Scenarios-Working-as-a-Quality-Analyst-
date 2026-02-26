@@ -492,3 +492,65 @@ spring.datasource.url.username=yourUser
 spring.datasource.password=yourPassword
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 ```
+
+# 1.  Functional Testing Example(JUnit 5)
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 5. Continuous Improvement Example: QA Best Practices Manager
+```
+package com.example.process;
+
+import java.util.Arraylist;
+import java.util.List;
+
+public QaProcessImprover {
+
+private final List<String> bestPractices = new Array<>();
+
+public QaProcessImprover() {
+bestPractices.add("Automate Repetitive tests");
+
+# 6. Example Usage of Defect Reporter in a Test
+```
+package com.example.tests.functional;
+
+import com.example.reporting.DefectReporter;
+import com.junit.jupiter.api.Test;
+
+import  static org.junit.jupiter.api.Assertions.*;
+
+public class FunctionalTestDefectReporter() {
+
+private final DefectReporter defectReporter = new DefectReporter();
+
+@Test
+public void test
+try {
+   boolean featureWorks = simulateFeatureChecks()
+  assertTrue(featureWorks, "Feature should work accurately");
+} catch (AssertionError e) {
+ try {
+    defectReporter.reportDefect("Feature failure", e.getMessage());
+} catch (Exception ex) {
+ex.printStackTrace();
+}
+throw e;
+}
+}
+
+private boolean simulateFeatureCheck() {
+return false;
+}
+}
+
