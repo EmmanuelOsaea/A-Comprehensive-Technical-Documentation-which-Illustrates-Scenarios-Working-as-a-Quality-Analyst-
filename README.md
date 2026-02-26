@@ -403,12 +403,49 @@ public class IntegrationService {
   private final ApiConfig apiConfig;
 
   public IntegrationService(ApiClient apiClient, ApiConfig apiConfig) {
- this api
+  this.apiClient = this.apiClient;
+  this.apiConfig = this.apiConfig;
+}
 
+public ResponseEntity<String> getSystemStatus() {
+String url = apiConfig.getBaseUrl() + "/system/status";
+return apiClient.get(url);
+}
 
+public ResponseEntity<String> sendData(Object data) {
+String url = apiConfig.getBaseUrl() + "/data";
+return apiClient.get(url);
+}
+}
+```
 
+# f) Database Service
+# ( DatabaseService.java )
+```
+package com.example.service;
 
+import com.example.repository.DatabaseRepository;
+import org.springframework.stereotype.Service;
 
+@Service
+public class DatabaseService {
+   
+  private final DatabaseRepository databaseRepository;
+
+  public DatabaseService( DatabaseRepository  databaseRepository) {
+      this.databaseRepository = databaseRepository;
+}
+
+public String getColumnValueById(String tableName, String columnName, int id) {
+   return databaseRepository.getValueById(tableName, columnName, id);
+}
+}
+```
+
+# g) Combined API & Database Tests
+# ( ApiDatabaseTests.java )
+```
+package com.example.tests;
 
 
 
