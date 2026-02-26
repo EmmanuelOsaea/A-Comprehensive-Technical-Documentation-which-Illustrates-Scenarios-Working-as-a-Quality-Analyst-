@@ -494,15 +494,62 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 ```
 
 # 1.  Functional Testing Example(JUnit 5)
+```
 
 
 
+```
 
 
+# 2. Regression Testing Example (JUnit 5)
+```
+package com.example.test.regression;
 
+import org.junit.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
+public class JupiterRegressionTest {
 
+    @Test
+    public void testCriticalFeature() {
+// Simulates verifying a critical feature after code changes
+ boolean featureWorks = checkCriticalFeature();
+assertTrue(featureWorks, "Critical feature should work accurately");
+}
 
+private boolean checkCriticalFeature() {
+
+return true
+}
+}
+
+```
+
+# 3. Performance Testing Example
+
+```
+package com.example.tests.performance;
+
+import org.junit.jupiter.api.Test;
+
+import java.io.IOException
+
+public class JupiterPerformanceTests {
+
+@Test
+public void runJMeterTest() throws IOException, InterruptedException { 
+ProcessBuilder processBuilder = new ProcessBuilder(
+            "jmeter", "-n", "-t", "performance-scripts/test-plan.jmx", "-l", "performance-scripts/result.jtl"
+            );
+Process process = processBuilder.start()
+int exitCode =  process.waitFor()
+
+if (exitCode != 0) {
+   throw new RunTimeException("JMeter test failed with exit code: " + exitCode);
+}
+}
+}
+```
 
 # 4. Defect Reporting Example
 # (Integration with Github Issues via REST api)
