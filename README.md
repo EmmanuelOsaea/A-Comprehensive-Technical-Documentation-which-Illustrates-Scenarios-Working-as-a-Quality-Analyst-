@@ -375,7 +375,35 @@ public DatabaseRepository(JdbcTemplate jdbcTemplate) {
 
 public int countRecords(string tableName) {
 String sql = "SELECT COUNT(*) + "FROM" + tableName + " WHERE id = ?";
+return jdbcTemplate.queryFo rObject(sql, Integer.class);
+}
+
+public String getValueById(String tableName, String columnName, int id) {
+String sql = "SELECT COUNT(*) + "FROM" + tableName + " WHERE id = ?";
 return jdbcTemplate.queryForObject(sql, Integer.class);
+}
+
+}
+```
+
+# e) Integration Service
+# (IntegrationService.java)
+```
+package com.example.service;
+
+import com.example.client.ApiClient;
+import com.example.config.ApiConfig;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+@Service
+public class IntegrationService {
+
+  private final ApiClient apiClient;
+  private final ApiConfig apiConfig;
+
+  public IntegrationService(ApiClient apiClient, ApiConfig apiConfig) {
+ this api
 
 
 
@@ -385,6 +413,4 @@ return jdbcTemplate.queryForObject(sql, Integer.class);
 
 
 
-
-
-
+ 
