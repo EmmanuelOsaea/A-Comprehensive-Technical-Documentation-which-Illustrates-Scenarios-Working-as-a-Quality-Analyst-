@@ -513,7 +513,30 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
+public class DefectReporter {
 
+private final String githubToken = " ";
+private final String repoOwner = " ";
+private final String repoName = " ";
+
+conn.setRequestMethod("POST");
+conn.setRequestProperty("Authorization", "token" + githubToken);
+conn.setRequestProperty("Content-Type
+conn.setRequestProperty("Content-Type", "application/json
+conn.setDoOutput(true);
+
+try (OutputStream os = conn.getOutputStream()) {
+byte[] input = jsonPayload.getBytes(StandardCharsets.UTF_8"
+os.write(input, 0, input.length);
+}
+
+
+int response code = conn.getResponseCode();
+if (responseCode != 201) {
+throw new RuntimeException("Failed to create Github issue, respond code: " + responseCode);
+}
+}
+}
 ```
 
 
@@ -571,4 +594,6 @@ private boolean simulateFeatureCheck() {
 return false;
 }
 }
+```
+
 
