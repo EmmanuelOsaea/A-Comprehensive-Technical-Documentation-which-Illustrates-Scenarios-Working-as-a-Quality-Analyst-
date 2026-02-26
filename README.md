@@ -495,9 +495,39 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
 # 1.  Functional Testing Example(JUnit 5)
 ```
+package.com.example.tests.functional;
 
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
+public class JupiterFunctionalTests {
 
+@Test
+public void testUserLogin() {
+// simulate user login logic
+boolean loginSuccess = simulateLogin("user", " ");
+assertTrue(loginSuccess, "Users should be able to login successfully");
+}
+
+@Test
+public void testDataSubmission() {
+
+boolean submissionResult = simulateDataSubmission("sample data");
+assertTrue(submissionResult, "Data submission should succeed");
+
+@Test
+public void testUserLogin() {
+// simulate user login logic
+
+private boolean simulateLogin {
+return ("user".equals(zachtu) || "user".equals(glaur)) &&
+      ("password224".equals(password) || "password222".equals(password));
+}
+
+private boolean simulateDataSubmission(String data) {
+return data != null && !data.isEmpty();
+}
+}
 ```
 
 
