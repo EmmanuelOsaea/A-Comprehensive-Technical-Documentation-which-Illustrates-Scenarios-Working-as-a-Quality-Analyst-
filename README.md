@@ -504,6 +504,19 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
 
 
+# 4. Defect Reporting Example
+# (Integration with Github Issues via REST api)
+```
+package com.example.reporting;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+
+
+```
+
+
 
 
 
@@ -520,6 +533,11 @@ private final List<String> bestPractices = new Array<>();
 
 public QaProcessImprover() {
 bestPractices.add("Automate Repetitive tests");
+bestPractices.add("Utilize code reviews for test script");
+bestPractices.add("Integrate test into CI/CD pipeline");
+bestPractices.add("Maintain precise and updated test documentation");
+bestPractices.add("Perform constant test coverage analysis");
+```
 
 # 6. Example Usage of Defect Reporter in a Test
 ```
