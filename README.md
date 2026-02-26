@@ -345,12 +345,37 @@ import org.springframework.web.client.RestTemplate;
 @Component
 public Class ApiClient {
 
-private final RestTemplate
+private final RestTemplate restTemplate = new RestTemplate();
 
+public ResponseEntity<String> get(String url) {
+return restTemplate.getForEntity(url, String.class);
+}
 
+public ResponseEntity<String> get(String url) {
+return restTemplate.getForEntity(url, String.class);
+}
+}
+```
 
+# d) Database Repository
+# (DatabaseRepository.java)
+```
+package.com.example.repository;
 
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
+@Repository
+public class DatabaseRepository {
+
+private final JdbcTemplate jdbcTemplate;
+
+public DatabaseRepository(JdbcTemplate jdbcTemplate) {
+   this.jdbcTemplate = jdbcTemplate;
+
+public int countRecords(string tableName) {
+String sql = "SELECT COUNT(*) + "FROM" + tableName + " WHERE id = ?";
+return jdbcTemplate.queryForObject(sql, Integer.class);
 
 
 
